@@ -1,7 +1,7 @@
 /* Set 2 Question 2  
 Who is writing the rock music?
 Let's invite the artists who have written the most rock music in our dataset. 
-Write a query that returns the Artist name and total track count of the top 10 rock bands.*/
+Write a query that returns the Artist name and total track count of the top 10 rock bands. */
 
 SELECT a.ArtistId,
        a.Name,
