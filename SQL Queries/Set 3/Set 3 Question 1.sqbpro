@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/briannaford/Desktop/chinook_db/chinook.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3350"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainAlbum"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Album" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="51"/><column index="2" value="300"/><column index="3" value="48"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">/* Set 3 Question 1   
+We want to find out the most popular music Genre for each country. We determine the most popular genre as the genre with the highest amount of purchases. 
+Write a query that returns each country along with the top Genre. For countries where the maximum number of purchases is shared, return all Genres.
+ */
+
+ WITH purchases_by_country AS
+  (SELECT COUNT(il.TrackId) AS Purchases,
+          c.Country,
+          g.Name,
+          g.GenreId
+   FROM Invoice i
+   JOIN InvoiceLine il ON i.InvoiceId = il.InvoiceId
+   JOIN Customer c ON c.CustomerId = i.CustomerId
+   JOIN Track t ON t.TrackId = il.TrackId
+   JOIN Genre g ON g.GenreId = t.GenreId
+   GROUP BY c.Country,
+            g.Name
+   ORDER BY c.Country)
+SELECT pbc.*
+FROM purchases_by_country pbc
+JOIN
+  (SELECT Country,
+          MAX(Purchases) AS max_purchases
+   FROM purchases_by_country
+   GROUP BY Country) mp ON pbc.Country = mp.Country
+AND pbc.Purchases = mp.max_purchases
+ORDER BY pbc.Country</sql><current_tab id="0"/></tab_sql></sqlb_project>
