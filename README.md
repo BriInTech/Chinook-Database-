@@ -22,21 +22,26 @@ Let's invite the artists who have written the most rock music in our dataset.
 ### Set 2 question 3 
 
 **First, find which artist has earned the most according to the InvoiceLines?**
+
 Now use this artist to find which customer spent the most on this artist.
 
 
 ### Set 3 question 1
 
 We want to find out the most popular music Genre for each country. 
+
 We determine the most popular genre as the genre with the highest amount of purchases. 
 
 **Write a query that returns each country along with the top Genre.** 
+
 **For countries where the maximum number of purchases is shared, return all Genres.**
 
 
 ### Set 3 question 3 
 
 **Write a query that determines the customer that has spent the most on music for each country.**
+
 **Write a query that returns the country along with the top customer and how much they spent.**
+
 **For countries where the top amount spent is shared, provide all customers who spent this amount.**
 
