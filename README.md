@@ -4,7 +4,9 @@ The schema for the Chinook Database is provided below. Each table is linked toge
 
 <img width="728" alt="Chinook DB" src="https://user-images.githubusercontent.com/115441149/215360453-3e435de5-dd3f-4b8c-841a-4d9bfb49b2ee.png">
 
-##The Questions are as Listed Below 
+
+##The following questions are provided
+
 
 ## Set 2 
 ### Set 2 question 2 
